@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To My Beloved Nene</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>To My Beloved Nene</h1>
+        <p class="intro">Tolulope, even though we talk every day, I want to remind you how much I love you and cherish every moment we share. You are my heart and soul, and I can't wait for the day we are together again. Until then, here are some words from my heart to keep you motivated and remind you of my unwavering love.</p>
+        <div class="messages">
+            <div class="message">
+                <p>Your presence in my life is a blessing I am grateful for every day.</p>
+            </div>
+            <div class="message">
+                <p>Every conversation with you is a treasure I hold dear.</p>
+            </div>
+            <div class="message">
+                <p>Your love gives me strength and fills my life with joy.</p>
+            </div>
+            <div class="message">
+                <p>Thinking of you brings a smile to my face and warmth to my heart.</p>
+            </div>
+            <div class="message">
+                <p>Our love is a beautiful journey, and I am so lucky to have you by my side.</p>
+            </div>
+            <div class="message">
+                <p>I am always here for you, supporting you and loving you endlessly.</p>
+            </div>
+            <div class="message">
+                <p>You are my everything, and my love for you grows stronger each day.</p>
+            </div>
+        </div>
+        <footer>
+            <p>With all my love,</p>
+            <p>Your [Your Name]</p>
+        </footer>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
+
+<style>
+    body {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    text-align: center;
+    padding: 50px;
+}
+
+.container {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 0 auto;
+    border: 2px solid #ff6b6b;
+}
+
+h1 {
+    font-size: 2.5em;
+    color: #ff6b6b;
+}
+
+.intro {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    color: #001f3f;
+}
+
+.messages {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.message {
+    background: #ffe0e0;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+    border: 2px solid #001f3f;
+}
+
+.message:nth-child(2) {
+    animation-delay: 2s;
+}
+
+.message:nth-child(3) {
+    animation-delay: 4s;
+}
+
+.message:nth-child(4) {
+    animation-delay: 6s;
+}
+
+.message:nth-child(5) {
+    animation-delay: 8s;
+}
+
+.message:nth-child(6) {
+    animation-delay: 10s;
+}
+
+.message:nth-child(7) {
+    animation-delay: 12s;
+}
+
+footer {
+    margin-top: 30px;
+    font-size: 1.2em;
+    color: #555;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+    const messages = document.querySelectorAll('.message');
+    messages.forEach((message, index) => {
+        message.style.animationDelay = `${index * 2}s`;
+    });
+});
+
+</script>
