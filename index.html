@@ -32,6 +32,18 @@
             <div class="message">
                 <p>You are my everything, and my love for you grows stronger each day.</p>
             </div>
+            <div class="message">
+                <p>May God bless you and keep you safe, my love.</p>
+            </div>
+            <div class="message">
+                <p>I pray for your success and happiness every day.</p>
+            </div>
+            <div class="message">
+                <p>Your dreams are my dreams, and I will always support you.</p>
+            </div>
+            <div class="message">
+                <p>May our love continue to grow and flourish, now and forever.</p>
+            </div>
         </div>
         <footer>
             <p>With all my love,</p>
@@ -43,9 +55,11 @@
 </html>
 
 <style>
-    body {
+    @import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+
+body {
     background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-    font-family: 'Arial', sans-serif;
+    font-family: 'Special Elite', cursive;
     color: #333;
     text-align: center;
     padding: 50px;
@@ -83,33 +97,23 @@ h1 {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    opacity: 0;
-    animation: fadeIn 2s forwards;
     border: 2px solid #001f3f;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
-.message:nth-child(2) {
-    animation-delay: 2s;
+.message span {
+    display: inline-block;
+    animation: colorChange 5s infinite;
 }
 
-.message:nth-child(3) {
-    animation-delay: 4s;
-}
-
-.message:nth-child(4) {
-    animation-delay: 6s;
-}
-
-.message:nth-child(5) {
-    animation-delay: 8s;
-}
-
-.message:nth-child(6) {
-    animation-delay: 10s;
-}
-
-.message:nth-child(7) {
-    animation-delay: 12s;
+@keyframes colorChange {
+    0% { color: #ff0303; }
+    25% { color: #ff6b6b; }
+    50% { color: #28beb9; }
+    75% { color: #06258b; }
+    100% { color: #6bd310; }
 }
 
 footer {
@@ -118,19 +122,36 @@ footer {
     color: #555;
 }
 
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-    }
+.message.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 </style>
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-    const messages = document.querySelectorAll('.message');
-    messages.forEach((message, index) => {
-        message.style.animationDelay = `${index * 2}s`;
+    const messages = document.querySelectorAll('.message p');
+
+    messages.forEach(message => {
+        const words = message.textContent.split(' ');
+        message.innerHTML = words.map(word => `<span>${word}</span>`).join(' ');
+    });
+
+    const messageDivs = document.querySelectorAll('.message');
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+
+    messageDivs.forEach(message => {
+        observer.observe(message);
     });
 });
 
